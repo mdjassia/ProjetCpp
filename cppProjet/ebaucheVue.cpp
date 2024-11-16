@@ -8,7 +8,7 @@ int main() {
 	// Parametres graphiques, à replacer au bon endroit
 	int MARGIN_LEFT=100, MARGIN_RIGHT=100, MARGIN_TOP=100, MARGIN_BOTTOM=100;
 	int TILE_SIZE=64;
-	int NB_COL=8, NB_LIGNE=10;
+	int NB_COL=8, NB_LIGNE=1;
 	unsigned int nbPix_x=MARGIN_LEFT+MARGIN_RIGHT+NB_COL*TILE_SIZE;
 	unsigned int nbPix_y=MARGIN_TOP+MARGIN_BOTTOM+NB_LIGNE*TILE_SIZE;
     // définition d'un panneau "central"
@@ -56,7 +56,7 @@ int main() {
         		trig_y=(mouseWorldPos.y - topLeft.y)/ TILE_SIZE;
 			message += " case :" + to_string(trig_x) + " ; " + to_string(trig_y);
         	}
-                window.setTitle(message);
+               // window.setTitle(message);
         	
         	Event event;
          	while (window.pollEvent(event)) {

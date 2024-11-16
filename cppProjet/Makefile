@@ -9,10 +9,10 @@ all :
 ebaucheModel : ebaucheModel.cpp
 	$(CPP) ebaucheModel.cpp
 
-ebaucheVue : ebaucheVue.cpp
-	$(CPP) -c ebaucheVue.cpp
-	g++ -o ebaucheVue ebaucheVue.o -lsfml-system -lsfml-graphics -lsfml-window
-	./ebaucheVue
+ebaucheVue1 : ebaucheVue1.cpp
+	$(CPP) -c ebaucheVue1.cpp
+	g++ -o ebaucheVue1 ebaucheVue1.o -lsfml-system -lsfml-graphics -lsfml-window
+	./ebaucheVue1
 
 clean :
-	rm *.o ebaucheVue a.out
+	rm *.o ebaucheVue1 a.out
