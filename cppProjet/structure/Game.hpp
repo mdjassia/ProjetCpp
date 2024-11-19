@@ -2,26 +2,33 @@
 #define GAME_HPP
 
 #include <SFML/Graphics.hpp>
+#include "Level.hpp"
+#include <vector>
 
 class Game {
 public:
-    Game();                  // Constructeur
-    void run();              // Méthode pour démarrer le jeu
+    Game(); // Constructeur
+    void run(); // Fonction principale de boucle du jeu
 
 private:
+    void loadResources(); // Charger les ressources
+    void handleEvents(); // Gérer les événements
+    void update(); // Mettre à jour l'état du jeu
+    void render(); // Rendu du jeu
+    void renderMenu(); // Rendu du menu
+    void renderGame(); // Rendu du jeu (niveau actuel)
+
     sf::RenderWindow window; // Fenêtre du jeu
-    sf::Texture backgroundTexture; // Texture pour l'image de fond
-    sf::Sprite backgroundSprite;   // Sprite pour l'image de fond
-    sf::RectangleShape button;     // Forme du bouton
-    sf::Text startGameText;        // Texte pour le bouton
-    sf::Font font;                 // Police de caractère pour le texte
+    bool inGame; // Flag pour savoir si on est en jeu
+    int level; // Numéro du niveau actuel
+    sf::RectangleShape button; // Bouton "Start Game"
+    sf::Text startGameText; // Texte du bouton
+    sf::Font font; // Police de caractère
+    sf::Sprite backgroundSprite; // Sprite d'arrière-plan
+    sf::Texture backgroundTexture; // Texture de l'arrière-plan
 
-    int currentLevel ;     // niveau de jeux 
-
-    void loadResources();   // Méthode pour charger les ressources (fond, police)
-    void handleEvents();    // Gérer les événements
-    void update();          // Mise à jour de la logique de jeu (si nécessaire)
-    void render();          // Rendu des éléments à l'écran
+    std::vector<Level> levels; // Liste des niveaux
+    Level* currentLevel; // Niveau actuel
 };
 
-#endif
+#endif // GAME_HPP

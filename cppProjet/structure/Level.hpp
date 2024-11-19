@@ -2,20 +2,20 @@
 #define LEVEL_HPP
 
 #include <SFML/Graphics.hpp>
+#include "Case.hpp"
 #include <vector>
 
 class Level {
 public:
-    // Constructeur pour initialiser un niveau avec les dimensions spécifiées
-    Level(int sizeX, int sizeY);
-
-    // Méthode pour dessiner le niveau dans une fenêtre SFML
-    void draw(sf::RenderWindow &window);
+    Level(int levelNumber); // Constructeur avec le numéro de niveau
+    void draw(sf::RenderWindow& window); // Méthode pour dessiner le niveau
+    int getNumRows() const; // Nombre de lignes du niveau
+    int getNumCols() const; // Nombre de colonnes du niveau
+    std::vector<Case> getFixedCases() const; // Obtenir les cases fixes
 
 private:
-    int sizeX; // Taille de la grille en X
-    int sizeY; // Taille de la grille en Y
-    std::vector<std::vector<int>> grid; // Grille représentant les données du niveau
+    int levelNumber; // Numéro du niveau
+    std::vector<Case> fixedCases; // Cases fixes pour ce niveau
 };
 
 #endif // LEVEL_HPP
