@@ -1,21 +1,18 @@
 #ifndef LEVEL_HPP
 #define LEVEL_HPP
 
-#include <SFML/Graphics.hpp>
-#include "Case.hpp"
 #include <vector>
+#include "CaseFixe.hpp"
+#include <SFML/Graphics.hpp>
 
 class Level {
 public:
-    Level(int levelNumber); // Constructeur avec le numéro de niveau
-    void draw(sf::RenderWindow& window); // Méthode pour dessiner le niveau
-    int getNumRows() const; // Nombre de lignes du niveau
-    int getNumCols() const; // Nombre de colonnes du niveau
-    std::vector<Case> getFixedCases() const; // Obtenir les cases fixes
+    Level(int levelNumber);  // Constructeur du niveau
+    void draw(sf::RenderWindow& window); // Dessiner toutes les cases fixes du niveau
 
 private:
-    int levelNumber; // Numéro du niveau
-    std::vector<Case> fixedCases; // Cases fixes pour ce niveau
+    int levelNumber;                 // Numéro du niveau
+    std::vector<CaseFixe> fixedCases; // Liste des cases fixes
 };
 
 #endif // LEVEL_HPP
