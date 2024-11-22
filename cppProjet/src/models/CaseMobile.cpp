@@ -1,4 +1,4 @@
-#include "CaseMobile.hpp"
+#include "../../include/models/CaseMobile.hpp"
 
 CaseMobile::CaseMobile(int row, int col) : Case(row, col) {
     shape.setSize({64.0f, 64.0f});  // Taille par défaut

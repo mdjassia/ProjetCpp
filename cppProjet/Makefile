@@ -1,18 +1,28 @@
-CPP=g++ --std=c++11 -Wall
+# Variables
+CXX = g++
+CXXFLAGS = -Wall -Wextra -std=c++17 -Iinclude -g
+LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
+SRC_DIR = src
+BUILD_DIR = build
 
-all :  
-	@echo "Vous pouvez lancer"
-	@echo " make ebaucheModel"
-	@echo " make ebaucheVue (mais il faut avoir préalablement installé SFML)"
-	@echo " make clean"
+# Sources
+SOURCES = $(wildcard $(SRC_DIR)/**/*.cpp $(SRC_DIR)/*.cpp)  # Inclut tout fichier .cpp dans src
+OBJECTS = $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SOURCES))
+MAIN = main.cpp  # Mise à jour pour indiquer que main.cpp est au niveau du projet
 
-ebaucheModel : ebaucheModel.cpp
-	$(CPP) ebaucheModel.cpp
+# Exécutable
+TARGET = PieceOutGame
 
-ebaucheVue1 : ebaucheVue1.cpp
-	$(CPP) -c ebaucheVue1.cpp
-	g++ -o ebaucheVue1 ebaucheVue1.o -lsfml-system -lsfml-graphics -lsfml-window
-	./ebaucheVue1
+all: $(TARGET)
 
-clean :
-	rm *.o ebaucheVue1 a.out
+$(TARGET): $(OBJECTS) $(MAIN)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) $(MAIN) -o $(TARGET) $(LDFLAGS)
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(BUILD_DIR) $(TARGET)
+
+.PHONY: all clean

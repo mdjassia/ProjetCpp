@@ -1,4 +1,4 @@
-#include "CaseFixe.hpp"
+#include "../../include/models/CaseFixe.hpp"
 
 CaseFixe::CaseFixe(int row, int col) : Case(row, col) {
     shape.setSize({64.0f, 64.0f});  // Taille fixe

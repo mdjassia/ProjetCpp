@@ -1,4 +1,4 @@
-#include "Case.hpp"
+#include "../../include/models/Case.hpp"
 
 Case::Case(int row, int col) : row(row), col(col) {}
 

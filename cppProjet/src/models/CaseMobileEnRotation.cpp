@@ -1,4 +1,4 @@
-#include "CaseMobileEnRotation.hpp"
+#include "../../include/models/CaseMobileEnRotation.hpp"
 
 CaseMobileEnRotation::CaseMobileEnRotation(int row, int col) : CaseMobile(row, col) {}
 

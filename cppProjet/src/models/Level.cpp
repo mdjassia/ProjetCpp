@@ -1,4 +1,4 @@
-#include "Level.hpp"
+#include "../../include/models/Level.hpp"
 
 Level::Level(int levelNumber) : levelNumber(levelNumber) {
     // Initialisation des cases fixes en fonction du niveau
